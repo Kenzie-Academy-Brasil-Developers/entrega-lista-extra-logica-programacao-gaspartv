@@ -35,54 +35,14 @@ function cashMachine(valorDoSaque, valorDoSalario, valorDasVendas) {
     for (saque; saque >= 2; saque -= 2, notas[2] += 1){}
 
     let resposta = []
-
-    if (notas[200] > 0) {
-        if (notas[200] === 1) {
-            resposta.push(`${notas[200]} nota de R$200`)
-        } else {
-            resposta.push(`${notas[200]} notas de R$200`)
-        }
-    }
-    if (notas[100] > 0) {
-        if (notas[100] === 1) {
-            resposta.push(`${notas[100]} nota de R$100`)
-        } else {
-            resposta.push(`${notas[100]} notas de R$100`)
-        }
-    }
-    if (notas[50] > 0) {
-        if (notas[50] === 1) {
-            resposta.push(`${notas[50]} nota de R$50`)
-        } else {
-            resposta.push(`${notas[50]} notas de R$50`)
-        }
-    }
-    if (notas[20] > 0) {
-        if (notas[20] === 1) {
-            resposta.push(`${notas[20]} nota de R$20`)
-        } else {
-            resposta.push(`${notas[20]} notas de R$20`)
-        }
-    }
-    if (notas[10] > 0) {
-        if (notas[10] === 1) {
-            resposta.push(`${notas[10]} nota de R$10`)
-        } else {
-            resposta.push(`${notas[10]} notas de R$10`)
-        }
-    }
-    if (notas[5] > 0) {
-        if (notas[5] === 1) {
-            resposta.push(`${notas[5]} nota de R$5`)
-        } else {
-            resposta.push(`${notas[5]} notas de R$5`)
-        }
-    }
-    if (notas[2] > 0) {
-        if (notas[2] === 1) {
-            resposta.push(`${notas[2]} nota de R$2`)
-        } else {
-            resposta.push(`${notas[2]} notas de R$2`)
+    for (let key in notas) {
+        console.log(notas[key])
+        if (notas[key] > 0) {
+            if (notas[key] === 1) {
+                resposta.push(`${notas[key]} nota de R$${key}`)
+            } else {
+                resposta.push(`${notas[key]} notas de R$${key}`)
+            }
         }
     }
     return `Notas sacadas: ${resposta.join(", ")}, Saldo Atual: R$${salario - valorDoSaque}`
